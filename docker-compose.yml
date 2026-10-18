@@ -1,0 +1,12 @@
+services:
+  pharmacy:
+    build: .
+    container_name: pharmacy-erp-mvp
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8088:8000"
+    environment:
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-admin123}
+    volumes:
+      - ./data:/app/data
+      - ./backups:/app/backups
